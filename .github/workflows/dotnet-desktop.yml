@@ -60,6 +60,6 @@ jobs:
     steps:
     - name: ENV
       run: |
-        echo "Time_Tick=$(Get-Date -Format 'yyyyMMddHHmm')" | Out-File -FilePath $env:GITHUB_ENV -Append # no need for -Encoding utf8
-        echo "$env:Time_Tick"
+        echo "Time_Tick=$(Get-Date -Format 'yyyyMMddHHmm')" | Out-File -FilePath $env:GITHUB_ENV -Append
         echo ${{ env.Time_Tick }}
+        echo "$env:Time_Tick"
