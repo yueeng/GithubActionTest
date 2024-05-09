@@ -61,11 +61,13 @@ jobs:
     - name: ENV
       id: step_zero
       run: |
+        echo "time_tick2=$(Get-Date -Format 'yyyyMMddHHmm')" >> $env:GITHUB_ENV
         echo "time_tick=$(Get-Date -Format 'yyyyMMddHHmm')" | Out-File -FilePath $env:GITHUB_ENV -Append # no need for -Encoding utf8
     - name: USE ENV
       id: step_zero_2
       run: |
         echo "${{ env.time_tick }}" # This will output 'yellow'
+        echo "${{ env.time_tick2 }}" # This will output 'yellow'
     - name: Set the value
       id: step_one
       run: |
