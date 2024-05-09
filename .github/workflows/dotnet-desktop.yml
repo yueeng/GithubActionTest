@@ -61,6 +61,6 @@ jobs:
     - name: ENV
       run: |
         echo "Time_Tick=$(Get-Date -Format 'yyyyMMddHHmm')"
-        echo "Time_Tick=$(Get-Date -Format 'yyyyMMddHHmm')" >> $env:GITHUB_ENV
-        echo ${{ env.Time_Tick }}
+        echo "Time_Tick=$(Get-Date -Format 'yyyyMMddHHmm')" >> $GITHUB_ENV
         echo "$env:Time_Tick"
+        echo ${{ env.Time_Tick }}
