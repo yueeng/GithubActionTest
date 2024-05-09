@@ -58,6 +58,14 @@ jobs:
       Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
+    - name: ENV
+      id: step_zero
+      run: |
+        echo "time_tick=$(Get-Date -Format 'yyyyMMddHHmm')" | Out-File -FilePath $env:GITHUB_ENV -Append # no need for -Encoding utf8
+    - name: USE ENV
+      id: step_zero_2
+      run: |
+        echo "${{ env.time_tick }}" # This will output 'yellow'
     - name: Set the value
       id: step_one
       run: |
@@ -66,8 +74,3 @@ jobs:
       id: step_two
       run: |
         echo "${{ env.action_state }}" # This will output 'yellow'
-    - name: ENV
-      run: |
-        echo "time_tick=$(Get-Date -Format 'yyyyMMddHHmm')" | Out-File -FilePath $env:GITHUB_ENV -Append
-        echo "${{ env.time_tick }}"
-        echo "$env:time_tick"
